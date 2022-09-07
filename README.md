@@ -1,4 +1,4 @@
-# passwall_auto
+# Passwall Selector
 自动机场测速并选择最佳节点
 
 ### 这个项目针对的就是很多垃圾机场，节点ping测速和真实的带宽上限不匹配的问题
