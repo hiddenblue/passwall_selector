@@ -5,12 +5,21 @@ import copy
 import re
 # 这里引入一个日志模块，输入运行的日志信息，就这么写，先不管能不能用
 
+<<<<<<< HEAD
 # 我可以在这个里面限定一些条件，比如Avgping小于50  AvgSpeed要大于25MB，设定变量 googleping也就是SitePing要小于600，当然也可以用下面的中位数方法
 # avgping_limit = 50
 # avgspeed_limit = 25
 # siteping_limit = 600
 
 #  print("程序开始执行，请检查设定的阈值，设定的是平均ping要求小于%dms，平均速度要求大于%dMbps，google站点访问ping为%dms\n"%(avgping_limit,avgspeed_limit,siteping_limit))
+=======
+# 我可以在这个里面限定一些条件，比如Avgping小于50  AvgSpeed要大于25MB，设定变量 googleping也就是SitePing要小于600
+avgping_limit = 50
+avgspeed_limit = 25
+siteping_limit = 600
+
+print("程序开始执行，请检查设定的阈值，设定的是平均ping要求小于%dms，平均速度要求大于%dMbps，google站点访问ping为%dms\n"%(avgping_limit,avgspeed_limit,siteping_limit))
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 
 logging.basicConfig(
     filename="proxy.log",
@@ -18,13 +27,18 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S %p",
     level=10
 )
+<<<<<<< HEAD
 logging.info("logging correct\n")
+=======
+logging.info("日志正常\n")
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 # print("hello world!")
 h1 = logging.FileHandler(filename="proxy.log",encoding="utf-8")
 sh = logging.StreamHandler()
 
 # 这里我要实现一个简单的检查本地目录信息，包括results文件夹的存在和找到目标log文件
 print(os.getcwd())
+<<<<<<< HEAD
 
 if os.path.isdir("stairspeedtest")==True:
     print("目标目录stairspeedtest存在，继续检查stairspeedtest log文件存在\n")
@@ -32,6 +46,12 @@ else:
     print("stairspeedtest文件夹不存在，错误，退出")
     exit()
 os.chdir("./stairspeedtest/results/")
+=======
+dir_list=os.listdir(".")
+if "results" in dir_list:
+    print("目标目录results存在，继续检查stairspeedtest log文件存在\n")
+os.chdir("./results/")
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 print(os.getcwd())
 
 # 这里我把字符串列表排一下序，不然容易出错，按扩展名排序。
@@ -45,12 +65,15 @@ dir_list.sort(key=last_3)
 for i in range(len(dir_list)-1,-1,-1):
     if dir_list[i].find("log") == -1:
         dir_list.remove(dir_list[i])
+<<<<<<< HEAD
 
 #这里需要加个按前几位排序，方便测试环境
 def take_y_m_d(elem):
     return elem[0:8]
 dir_list.sort(key=take_y_m_d)
 
+=======
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 target_file=dir_list[-1]
 if target_file.find("log")!=-1:
     print(target_file,"\n","已经找到目标文件\n")
@@ -59,12 +82,20 @@ else:
     exit()
 
 # 这里可以简单的做一个时间匹配，要求只检索和当天时间相同的结果，太久远的记录不匹配。 开发过程暂时不启用算了
+<<<<<<< HEAD
 todaytime= time.strftime("%Y%m%d")
+=======
+'''todaytime= time.strftime("%Y%m%d")
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 if target_file.find(todaytime)!=-1:
     print("VALID TIME! CORRECT!\n")
 else:
     print("INVALID TIME! ERROR!\n")
+<<<<<<< HEAD
     exit()
+=======
+    exit()'''
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 
 # 完成了找到目标文件的功能，后面开始进行测速结果文件的查找和匹配 筛选
 # file=open("../results/","r",encoding="UTF-8-sig")
@@ -77,7 +108,11 @@ with open(target_file,"r",encoding="utf-8") as f:
 # print(content)
 data_list=content.split("\n\n")
 
+<<<<<<< HEAD
 # 这里很奇怪用for i in data_list无法做到分离
+=======
+#这里很奇怪用for i in data_list无法做到分离
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 for i in range(len(data_list)):
     data_list[i]=data_list[i].split("\n")
 # print(data_list)
@@ -85,7 +120,11 @@ data_list.remove(data_list[0])
 data_list.remove(data_list[-1])
 # print(data_list)
 
+<<<<<<< HEAD
 # 只保留上述列表的基础数据，其余的都丢了
+=======
+#只保留上述列表的基础数据，其余的都丢了
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 '''
 0 [speed^[大流量]联通→日本dg]
 1 AvgPing=40.00
@@ -123,6 +162,7 @@ for i in range(len(data_list)-1,-1,-1):
     else:
         data_list.remove(data_list[i])
 
+<<<<<<< HEAD
 print(data_list,"\n")
 print(len(data_list))
 avgping_list=[]
@@ -151,6 +191,10 @@ avgping_limit = avgping_list[index[0]]
 avgspeed_limit = avgspeed_list[index[1]]
 siteping_limit = siteping_list[index[2]]
 print("程序开始执行，请检查设定的阈值，设定的是取0.6中位数，平均ping要求小于%dms，平均速度要求大于%dMbps，google站点访问ping小于%dms\n"%(avgping_limit,avgspeed_limit,siteping_limit))
+=======
+print(data_list)
+print(len(data_list))
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 
 # 下面开始正式的筛选节点
 for i in range(len(data_list)-1,-1,-1):
@@ -163,16 +207,23 @@ def takesecond(elem):
 data_list.sort(key=takesecond,reverse=1)
 print("筛选完成")
 
+<<<<<<< HEAD
 # 去掉一些不太靠谱的节点，印度节点
 for i in range(len(data_list)-1,-1,-1):
     if "印度" in data_list[i][0]:
         data_list.remove(data_list[i])
 
+=======
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
 print("符合设定阈值的节点个数为%d个，分别是\n"%len(data_list))
 for i in data_list:
     print(i)
 
+<<<<<<< HEAD
 with open("../../node_result.txt","w",encoding="utf-8") as file:
+=======
+with open("../node_result.txt","w",encoding="utf-8") as file:
+>>>>>>> af053dd2118bce219ca9b6592ab550128ad2324d
     file.write(str(data_list))
 print("结果写入node_result.txt完成")
 
