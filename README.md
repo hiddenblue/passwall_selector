@@ -1,5 +1,5 @@
 # Passwall Selector
-自动机场测速并选择最佳节点
+passwall自动机场测速并选择最佳节点
 ---
 ## Function:
 
