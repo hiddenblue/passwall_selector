@@ -1,6 +1,6 @@
 # Passwall Selector
 passwall自动机场测速并选择最佳节点
----
+
 ## Function:
 
 这个项目针对的就是很多垃圾机场，节点ping测速和真实的带宽上限不匹配的问题
@@ -15,8 +15,6 @@ passwall自动机场测速并选择最佳节点
 **如图，你可以用crontab把它部署在夜深人静的时候，它可以自动执行，无需操心**
 
 
-
----
 - 筛选最佳节点主要是三个标准：
 1. 直接ping的延迟
 2. siteping的延迟 主要还是访问google的速度
@@ -27,7 +25,7 @@ passwall自动机场测速并选择最佳节点
 2. passwall当前使用的节点
 3. 后备节点，默认开启自动切换，备用节点有两个
 
----
+
 ## Usage:
 项目文件主要是三个**两个python脚本，一个shell脚本**
 
@@ -47,7 +45,7 @@ passwall自动机场测速并选择最佳节点
 
 
 
----
+
 
 ## requirements:
 openwrt和用于控制的ubuntu需要安装python3，我使用的是python3.6。
@@ -64,7 +62,7 @@ openwrt和用于控制的ubuntu需要安装python3，我使用的是python3.6。
 
 `apt install python3`  //Debian系 安装python3，Redhat系用yum应该也差不多
 
----
+
 ##Addition:
 
 写这个纯粹是受不了买的机场速度实在太垃圾了，图个乐呵，各位看官看看就成。写的比较乱，不过可以参考大致的流程自己写一个，坑都被我踩完了。
