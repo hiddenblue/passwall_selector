@@ -63,7 +63,7 @@ openwrt和用于控制的ubuntu需要安装python3，我使用的是python3.6。
 `apt install python3`  //Debian系 安装python3，Redhat系用yum应该也差不多
 
 
-##Addition:
+## Addition:
 
 写这个纯粹是受不了买的机场速度实在太垃圾了，图个乐呵，各位看官看看就成。写的比较乱，不过可以参考大致的流程自己写一个，坑都被我踩完了。
 
